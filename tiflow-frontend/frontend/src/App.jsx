@@ -8,6 +8,7 @@ function Navbar({ current, onChange }) {
     { id: "simulation", label: "Simulation" },
     { id: "transparency", label: "Transparence" },
     { id: "community", label: "Communauté" },
+    { id: "lead", label: "Pilote" },
     { id: "faq", label: "FAQ" },
   ];
 
@@ -384,6 +385,85 @@ function CommunitySection() {
   );
 }
 
+function PilotLeadSection() {
+  const [lead, setLead] = useState({
+    name: "",
+    contact: "",
+    profile: "Particulier",
+    need: "",
+  });
+  const [saved, setSaved] = useState(false);
+
+  const updateLead = (field, value) => {
+    setLead((current) => ({ ...current, [field]: value }));
+  };
+
+  const buildMessage = () =>
+    [
+      "Bonjour TiFlow, je souhaite suivre le pilote.",
+      `Nom : ${lead.name || "non renseigné"}`,
+      `Contact : ${lead.contact || "non renseigné"}`,
+      `Profil : ${lead.profile}`,
+      `Besoin : ${lead.need || "à préciser"}`,
+      "Je comprends que TiFlow est une simulation pédagogique sans gain garanti.",
+    ].join("\n");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const entry = { ...lead, createdAt: new Date().toISOString() };
+    const current = JSON.parse(localStorage.getItem("tiflow_pilot_leads") || "[]");
+    localStorage.setItem("tiflow_pilot_leads", JSON.stringify([entry, ...current].slice(0, 50)));
+    setSaved(true);
+    window.open(`https://wa.me/596696653589?text=${encodeURIComponent(buildMessage())}`, "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <Section
+      id="lead"
+      title="Accès pilote"
+      subtitle="Qualifier les personnes intéressées sans promettre de rendement ni collecter d’argent."
+    >
+      <div className="lead-panel">
+        <div>
+          <p className="hero-badge">Qualification contrôlée</p>
+          <h3>Recevoir les prochains scénarios TiFlow</h3>
+          <p className="project-desc">
+            Ce formulaire prépare un message WhatsApp et conserve une copie locale dans ton navigateur.
+            Aucun paiement, aucune promesse de gain, aucune décision financière automatique.
+          </p>
+        </div>
+        <form className="lead-form" onSubmit={handleSubmit}>
+          <div className="lead-grid">
+            <label className="lead-field">
+              Nom
+              <input value={lead.name} onChange={(event) => updateLead("name", event.target.value)} placeholder="Nom ou société" />
+            </label>
+            <label className="lead-field">
+              Contact
+              <input value={lead.contact} onChange={(event) => updateLead("contact", event.target.value)} placeholder="WhatsApp ou email" />
+            </label>
+          </div>
+          <label className="lead-field">
+            Profil
+            <select value={lead.profile} onChange={(event) => updateLead("profile", event.target.value)}>
+              <option>Particulier</option>
+              <option>Entreprise</option>
+              <option>Partenaire projet</option>
+              <option>Observateur / testeur</option>
+            </select>
+          </label>
+          <label className="lead-field">
+            Besoin
+            <textarea value={lead.need} onChange={(event) => updateLead("need", event.target.value)} placeholder="Ce que tu veux comprendre, tester ou suivre" />
+          </label>
+          <button className="btn-primary" type="submit">Préparer ma demande pilote</button>
+          {saved && <p className="lead-success">Demande sauvegardée localement et WhatsApp préparé.</p>}
+        </form>
+      </div>
+    </Section>
+  );
+}
+
 function TestimonialsSection() {
   const testimonials = [
     {
@@ -509,6 +589,7 @@ export default function App() {
       <SimulationSection />
       <TransparencySection />
       <CommunitySection />
+      <PilotLeadSection />
       <TestimonialsSection />
       <FAQSection />
       <Footer />
