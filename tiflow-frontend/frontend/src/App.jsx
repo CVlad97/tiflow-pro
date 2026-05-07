@@ -60,10 +60,10 @@ function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-left">
-        <p className="hero-badge">Investissement participatif simplifié (version pédagogique)</p>
+        <p className="hero-badge">Simulation pédagogique - aucun gain garanti</p>
         <h1>
-          Gagne avec ce que tu{" "}
-          <span className="accent">finances (en simulation)</span>
+          Comprends ce que tu{" "}
+          <span className="accent">finances en simulation</span>
         </h1>
         <p className="hero-subtitle">
           Tu contribues, ça produit, tu gagnes… <strong>sur le papier</strong>.
@@ -81,16 +81,16 @@ function Hero() {
         </div>
         <div className="hero-stats">
           <div>
-            <span className="hero-stat-number">500+</span>
-            <span className="hero-stat-label">Membres actifs (objectif)</span>
+            <span className="hero-stat-number">0</span>
+            <span className="hero-stat-label">Promesse de rendement</span>
           </div>
           <div>
             <span className="hero-stat-number">15</span>
             <span className="hero-stat-label">Projets simulés</span>
           </div>
           <div>
-            <span className="hero-stat-number">98%</span>
-            <span className="hero-stat-label">Satisfaction pédagogique</span>
+            <span className="hero-stat-number">100%</span>
+            <span className="hero-stat-label">Simulation et transparence</span>
           </div>
         </div>
         <p className="hero-subtitle">
