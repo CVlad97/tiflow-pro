@@ -67,7 +67,7 @@ function Hero() {
           <span className="accent">finances en simulation</span>
         </h1>
         <p className="hero-subtitle">
-          Tu contribues, ça produit, tu gagnes… <strong>sur le papier</strong>.
+          Tu explores un scénario: ça produit, tu observes un flux… <strong>sur le papier</strong>.
           TiFlow te montre comment une contribution pourrait générer un flux
           productif, sans que la plateforme ne collecte ton argent ni ne
           promette un rendement réel.
@@ -95,7 +95,7 @@ function Hero() {
           </div>
         </div>
         <p className="hero-subtitle">
-          Transforme tes contributions en scénarios de revenus productifs, grâce à un
+          Explore des scénarios de flux productifs, grâce à un
           modèle transparent, simple et accessible.
         </p>
       </div>
@@ -117,7 +117,7 @@ function Hero() {
             <strong>Contribution min. étudiée :</strong> 50 €
           </p>
           <p className="hero-card-highlight">
-            Gain mensuel simulé : <strong>4,5 € / 50 €</strong>
+            Flux mensuel simulé : <strong>4,5 € / 50 €</strong>
           </p>
           <div className="progress-bar">
             <div
@@ -126,7 +126,7 @@ function Hero() {
             />
           </div>
           <p className="hero-card-text">
-            <strong>Progression simulée :</strong> 17 000 € “collectés” / 8 000 €
+            <strong>Progression simulée :</strong> 17 000 € “étudiés” / 8 000 €
             restants.
           </p>
           <p className="hero-card-footnote">
@@ -180,7 +180,7 @@ function ConceptSection() {
           <span className="bd-step">2</span>
           <h3>La Solution TiFlow</h3>
           <p>
-            TiFlow transforme tes contributions en <strong>revenus productifs simulés</strong>.
+            TiFlow transforme tes contributions en <strong>scénarios productifs simulés</strong>.
             Tu comprends comment un projet peut générer un flux, sans passer par
             une plateforme régulée ou confier ton argent.
           </p>
@@ -194,12 +194,12 @@ function ConceptSection() {
           <span className="bd-step">3</span>
           <h3>Tes Avantages</h3>
           <p>
-            Profite d’un modèle qui te permet de générer des{" "}
-            <strong>revenus périodiques simulés</strong> tout en gardant le
+            Utilise un modèle qui te permet d’estimer des{" "}
+            <strong>flux périodiques simulés</strong> tout en gardant le
             contrôle.
           </p>
           <ul className="bd-list">
-            <li>Revenus simulés mensuels</li>
+            <li>Flux simulés mensuels</li>
             <li>Transparence complète</li>
             <li>Simplicité maximale</li>
           </ul>
@@ -230,13 +230,13 @@ function ProjectsSection() {
           </div>
           <div className="project-row">
             <span>Contribution min. étudiée : <strong>50 €</strong></span>
-            <span>Gain mensuel simulé : <strong>4,5 € / 50 €</strong></span>
+            <span>Flux mensuel simulé : <strong>4,5 € / 50 €</strong></span>
           </div>
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: "68%" }} />
           </div>
           <div className="project-row">
-            <span>17 000 € “collectés”</span>
+            <span>17 000 € “étudiés”</span>
             <span>8 000 € restants</span>
           </div>
           <p className="project-desc">
@@ -246,8 +246,8 @@ function ProjectsSection() {
             contente de <strong>simuler</strong> ce mécanisme.
           </p>
           <div className="hero-actions" style={{ marginTop: "0.6rem" }}>
-            <button className="btn-primary">Contribuer (en simulation)</button>
-            <button className="btn-secondary">Simuler mes revenus</button>
+            <button className="btn-primary">Analyser ce scénario</button>
+            <button className="btn-secondary">Simuler mon flux</button>
           </div>
         </div>
       </div>
@@ -549,8 +549,8 @@ function Footer() {
         <div>
           <h4>TiFlow</h4>
           <p className="footer-small">
-            Investissement participatif simplifié… en simulation. Tu contribues,
-            ça produit, tu gagnes (sur le papier), et tu comprends mieux comment
+            Investissement participatif simplifié… en simulation. Tu explores,
+            ça produit, tu observes un flux (sur le papier), et tu comprends mieux comment
             fonctionne un projet productif.
           </p>
         </div>
@@ -569,7 +569,7 @@ function Footer() {
         © {new Date().getFullYear()} TiFlow. Tous droits réservés.
       </p>
       <p className="footer-small">
-        Les gains mentionnés sont des simulations à titre indicatif uniquement.
+        Les chiffres mentionnés sont des simulations à titre indicatif uniquement.
         TiFlow ne garantit aucun rendement financier et ne fournit pas de
         services d’investissement régulés.
       </p>
