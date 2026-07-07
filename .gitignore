@@ -1,4 +1,6 @@
-tiflow-frontend/frontend/node_modules/
-tiflow-frontend/frontend/dist/
-*.log
+node_modules/
+dist/
 .env
+*.local
+*.tsbuildinfo
+supabase/.temp
