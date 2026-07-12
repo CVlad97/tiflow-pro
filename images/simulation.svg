@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="400" fill="#0f172a" rx="12"/>
+
+  <!-- Phone frame -->
+  <rect x="30" y="30" width="190" height="340" fill="#1e293b" rx="16" stroke="#334155" stroke-width="2"/>
+  <rect x="100" y="38" width="50" height="6" fill="#475569" rx="3"/>
+  
+  <!-- Phone content: Investment app -->
+  <text x="48" y="72" font-family="system-ui" font-size="12" fill="#22c55e" font-weight="bold">Mon Portefeuille</text>
+  
+  <text x="48" y="98" font-family="system-ui" font-size="10" fill="#64748b">Solde total</text>
+  <text x="48" y="118" font-family="system-ui" font-size="18" fill="white" font-weight="bold">14 500 €</text>
+  <text x="120" y="118" font-family="system-ui" font-size="11" fill="#22c55e">+8.2%</text>
+  
+  <rect x="48" y="135" width="155" height="1" fill="#334155"/>
+  
+  <!-- Project card 1 -->
+  <rect x="48" y="150" width="155" height="65" fill="#334155" rx="8"/>
+  <text x="58" y="172" font-family="system-ui" font-size="11" fill="white" font-weight="bold">Résidence Alizés</text>
+  <text x="58" y="188" font-family="system-ui" font-size="9" fill="#64748b">Investi: 5 000 €</text>
+  <text x="58" y="203" font-family="system-ui" font-size="9" fill="#22c55e">Rendement: 6.5%</text>
+  
+  <!-- Project card 2 -->
+  <rect x="48" y="225" width="155" height="65" fill="#334155" rx="8"/>
+  <text x="58" y="247" font-family="system-ui" font-size="11" fill="white" font-weight="bold">Parc Solaire</text>
+  <text x="58" y="263" font-family="system-ui" font-size="9" fill="#64748b">Investi: 3 000 €</text>
+  <text x="58" y="278" font-family="system-ui" font-size="9" fill="#22c55e">Rendement: 6.0%</text>
+  
+  <!-- Project card 3 -->
+  <rect x="48" y="300" width="155" height="55" fill="#334155" rx="8"/>
+  <text x="58" y="322" font-family="system-ui" font-size="11" fill="white" font-weight="bold">Rés. Flamboyants</text>
+  <text x="58" y="338" font-family="system-ui" font-size="9" fill="#64748b">Investi: 2 000 €</text>
+  
+  <!-- Right side: Chart -->
+  <rect x="250" y="30" width="220" height="160" fill="#1e293b" rx="12" stroke="#334155" stroke-width="1"/>
+  <text x="265" y="55" font-family="system-ui" font-size="12" fill="#94a3b8" font-weight="bold">Rendements annuels</text>
+  
+  <!-- Bar chart -->
+  <rect x="270" y="120" width="25" height="55" fill="url(#b)" rx="3" opacity="0.8"/>
+  <rect x="310" y="95" width="25" height="80" fill="url(#g)" rx="3" opacity="0.9"/>
+  <rect x="350" y="110" width="25" height="65" fill="#f59e0b" rx="3" opacity="0.7"/>
+  <rect x="390" y="80" width="25" height="95" fill="#8b5cf6" rx="3" opacity="0.8"/>
+  
+  <text x="270" y="185" font-family="system-ui" font-size="8" fill="#64748b">2023</text>
+  <text x="310" y="185" font-family="system-ui" font-size="8" fill="#64748b">2024</text>
+  <text x="350" y="185" font-family="system-ui" font-size="8" fill="#64748b">2025</text>
+  <text x="390" y="185" font-family="system-ui" font-size="8" fill="#64748b">2026</text>
+  
+  <!-- Right bottom: Simulator -->
+  <rect x="250" y="210" width="220" height="160" fill="#1e293b" rx="12" stroke="#334155" stroke-width="1"/>
+  <text x="265" y="235" font-family="system-ui" font-size="12" fill="#94a3b8" font-weight="bold">Simulateur</text>
+  
+  <text x="265" y="260" font-family="system-ui" font-size="11" fill="#64748b">Montant</text>
+  <rect x="265" y="268" width="185" height="28" fill="#334155" rx="6"/>
+  <text x="275" y="286" font-family="system-ui" font-size="11" fill="white">3 000 €</text>
+  
+  <text x="265" y="310" font-family="system-ui" font-size="11" fill="#64748b">Rendement estimé</text>
+  <rect x="265" y="318" width="185" height="28" fill="#334155" rx="6"/>
+  <text x="275" y="336" font-family="system-ui" font-size="11" fill="#22c55e" font-weight="bold">+ 1 170 € (6.5%)</text>
+  
+  <rect x="265" y="355" width="185" height="10" fill="#334155" rx="5"/>
+  <rect x="265" y="355" width="130" height="10" fill="#22c55e" rx="5"/>
+</svg>

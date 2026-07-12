@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg1)" rx="20"/>
+  
+  <!-- Building 1 -->
+  <rect x="80" y="200" width="120" height="200" fill="#1e293b" rx="4" stroke="#334155" stroke-width="2"/>
+  <rect x="95" y="220" width="25" height="25" fill="#3b82f6" rx="2" opacity="0.7"/>
+  <rect x="130" y="220" width="25" height="25" fill="#3b82f6" rx="2" opacity="0.5"/>
+  <rect x="165" y="220" width="25" height="25" fill="#3b82f6" rx="2" opacity="0.8"/>
+  <rect x="95" y="260" width="25" height="25" fill="#22c55e" rx="2" opacity="0.6"/>
+  <rect x="130" y="260" width="25" height="25" fill="#22c55e" rx="2" opacity="0.9"/>
+  <rect x="165" y="260" width="25" height="25" fill="#22c55e" rx="2" opacity="0.4"/>
+  <rect x="95" y="300" width="25" height="25" fill="#f59e0b" rx="2" opacity="0.7"/>
+  <rect x="130" y="300" width="25" height="25" fill="#f59e0b" rx="2" opacity="0.5"/>
+  <rect x="165" y="300" width="25" height="25" fill="#f59e0b" rx="2" opacity="0.8"/>
+  <rect x="95" y="340" width="90" height="25" fill="#3b82f6" rx="2" opacity="0.3"/>
+  
+  <!-- Building 2 (taller) -->
+  <rect x="230" y="150" width="100" height="250" fill="#1e293b" rx="4" stroke="#334155" stroke-width="2"/>
+  <rect x="245" y="170" width="20" height="20" fill="#22c55e" rx="2" opacity="0.8"/>
+  <rect x="275" y="170" width="20" height="20" fill="#22c55e" rx="2" opacity="0.6"/>
+  <rect x="305" y="170" width="20" height="20" fill="#22c55e" rx="2" opacity="0.9"/>
+  <rect x="245" y="205" width="80" height="20" fill="#3b82f6" rx="2" opacity="0.5"/>
+  <rect x="245" y="240" width="20" height="20" fill="#f59e0b" rx="2" opacity="0.7"/>
+  <rect x="275" y="240" width="20" height="20" fill="#f59e0b" rx="2" opacity="0.4"/>
+  <rect x="305" y="240" width="20" height="20" fill="#f59e0b" rx="2" opacity="0.8"/>
+  <rect x="245" y="275" width="80" height="20" fill="#22c55e" rx="2" opacity="0.3"/>
+  
+  <!-- Building 3 -->
+  <rect x="360" y="180" width="130" height="220" fill="#1e293b" rx="4" stroke="#334155" stroke-width="2"/>
+  <rect x="375" y="200" width="25" height="25" fill="#3b82f6" rx="2" opacity="0.6"/>
+  <rect x="410" y="200" width="25" height="25" fill="#3b82f6" rx="2" opacity="0.9"/>
+  <rect x="445" y="200" width="25" height="25" fill="#3b82f6" rx="2" opacity="0.4"/>
+  <rect x="375" y="240" width="95" height="25" fill="#22c55e" rx="2" opacity="0.7"/>
+  <rect x="375" y="280" width="25" height="25" fill="#f59e0b" rx="2" opacity="0.8"/>
+  <rect x="410" y="280" width="25" height="25" fill="#f59e0b" rx="2" opacity="0.5"/>
+  <rect x="445" y="280" width="25" height="25" fill="#f59e0b" rx="2" opacity="0.7"/>
+
+  <!-- Crane -->
+  <line x1="520" y1="370" x2="520" y2="90" stroke="#64748b" stroke-width="4"/>
+  <line x1="470" y1="90" x2="600" y2="90" stroke="#64748b" stroke-width="4"/>
+  <polygon points="520,90 600,90 590,100 520,100" fill="#475569"/>
+  <circle cx="600" cy="90" r="5" fill="#94a3b8"/>
+  <line x1="590" y1="100" x2="540" y2="180" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4"/>
+  <rect x="525" y="180" width="30" height="20" fill="#f59e0b" rx="2"/>
+
+  <!-- Money/profit indicators -->
+  <text x="80" y="440" font-family="system-ui" font-size="16" fill="#22c55e" font-weight="bold">+7.2%</text>
+  <text x="240" y="440" font-family="system-ui" font-size="16" fill="#22c55e" font-weight="bold">+5.8%</text>
+  <text x="380" y="440" font-family="system-ui" font-size="16" fill="#22c55e" font-weight="bold">+8.5%</text>
+
+  <!-- Growth chart -->
+  <rect x="580" y="130" width="200" height="240" fill="#1e293b" rx="8" stroke="#334155" stroke-width="1"/>
+  <polyline points="590,340 630,300 660,270 690,220 720,190 750,150 770,140" stroke="#22c55e" stroke-width="3" fill="none"/>
+  <polyline points="590,340 630,300 660,270 690,220 720,190 750,150 770,140" stroke="#22c55e" stroke-width="3" fill="none" opacity="0.1"/>
+  <path d="M590,340 L630,300 L660,270 L690,220 L720,190 L750,150 L770,140 L770,340 Z" fill="url(#g1)" opacity="0.15"/>
+  <text x="620" y="160" font-family="system-ui" font-size="12" fill="#64748b">Portfolio</text>
+  <text x="620" y="178" font-family="system-ui" font-size="14" fill="#22c55e" font-weight="bold">€142,500</text>
+  
+  <!-- Investors -->
+  <circle cx="100" cy="140" r="8" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="120" cy="125" r="8" fill="#22c55e" opacity="0.8"/>
+  <circle cx="140" cy="140" r="8" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="160" cy="130" r="8" fill="#8b5cf6" opacity="0.8"/>
+  <text x="90" y="115" font-family="system-ui" font-size="10" fill="#94a3b8">350+</text>
+  <text x="80" y="105" font-family="system-ui" font-size="10" fill="#64748b">Investisseurs</text>
+
+  <!-- Badge -->
+  <rect x="580" y="380" width="200" height="40" fill="#22c55e" rx="8" opacity="0.15"/>
+  <text x="590" y="405" font-family="system-ui" font-size="14" fill="#22c55e" font-weight="bold">✓ Projets vérifiés</text>
+</svg>
