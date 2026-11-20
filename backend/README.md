@@ -37,3 +37,8 @@ Aucune donnée aspirée ni publiée sans source approuvée ; aucun comparatif ta
 Avant des investissements participatifs véritables : vérifier le montage juridique et les obligations
 AMF/PSFP ou autres régimes applicables, lutte anti-blanchiment, KYC, protection des investisseurs et flux de fonds.
 Ne jamais interpréter ces scénarios comme des offres financières.
+
+## Comparaison de devis fournisseurs (administrateur uniquement)
+- POST `/api/v1/admin/quotes` : crée un devis non vérifié pour une demande existante ; champs `request_id`, `supplier`, `product_reference`, `comparison_key`, `qty`, `unit_price_eur`, `freight_eur`, `duties_eur`, `taxes_eur`, `fees_eur`, `evidence`, `lead_days`.
+- PATCH `/api/v1/admin/quotes/{id}` avec `{"verified":true}` : validation humaine après contrôle du devis et des spécifications.
+- GET `/api/v1/admin/quotes?request_id=N` : coût total rendu = quantité × prix unitaire + fret + droits + taxes + frais. Classement strictement réservé aux devis validés de même `comparison_key` et quantité. Aucun devis fictif de test n'est stocké en production.

@@ -10,7 +10,8 @@ import time
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qs
+from compare import init_quotes, add_quote, quotes_for
 
 DB_PATH = Path(os.getenv("TIFLOW_DB", "/var/lib/tiflow/tiflow.sqlite3"))
 ALLOWED_ORIGIN = os.getenv("TIFLOW_ALLOWED_ORIGIN", "https://cvlad97.github.io").rstrip("/")
@@ -28,6 +29,7 @@ def connect():
     conn = sqlite3.connect(DB_PATH, timeout=5)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA busy_timeout = 5000")
+    conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
 
@@ -59,6 +61,7 @@ def init_db():
         );
         CREATE INDEX IF NOT EXISTS opportunities_status_idx ON opportunities(status);
         """)
+        init_quotes(conn)
 
 
 def clean_text(value, limit):
@@ -140,6 +143,18 @@ class Handler(BaseHTTPRequestHandler):
             with connect() as conn:
                 rows = conn.execute("SELECT * FROM opportunities ORDER BY created_at DESC LIMIT 100").fetchall()
             self.respond(200, {"data": [dict(r) for r in rows]})
+        elif path == "/api/v1/admin/quotes":
+            if not self.authorized():
+                self.respond(401, {"error": "unauthorized"})
+                return
+            try:
+                request_id = int(parse_qs(urlsplit(self.path).query).get("request_id", ["0"])[0])
+                if request_id <= 0: raise ValueError("Identifiant de demande requis")
+                with connect() as conn:
+                    records = quotes_for(conn, request_id)
+                self.respond(200, {"data": records, "note": "Classement uniquement entre offres vérifiées à spécifications et quantités identiques."})
+            except ValueError:
+                self.respond(400, {"error": "invalid_request_id"})
         else:
             self.respond(404, {"error": "not_found"})
 
@@ -162,6 +177,18 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         path = urlsplit(self.path).path
+        if path == "/api/v1/admin/quotes":
+            if not self.authorized():
+                self.respond(401, {"error": "unauthorized"})
+                return
+            try:
+                data = self.read_body()
+                with connect() as conn:
+                    quote_id = add_quote(conn, data)
+                self.respond(201, {"id": quote_id, "status": "pending_review"})
+            except (ValueError, TypeError, sqlite3.Error) as e:
+                self.respond(400, {"error": "invalid_quote", "message": str(e)[:110]})
+            return
         if path != "/api/v1/requests":
             self.respond(404, {"error": "not_found"})
             return
@@ -206,6 +233,20 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_PATCH(self):
         path = urlsplit(self.path).path
+        if path.startswith("/api/v1/admin/quotes/"):
+            if not self.authorized():
+                self.respond(401, {"error": "unauthorized"})
+                return
+            try:
+                quote_id=int(path.rsplit("/",1)[-1])
+                data=self.read_body()
+                if not isinstance(data.get("verified"),bool): raise ValueError("Validation booléenne requise")
+                with connect() as conn:
+                    count=conn.execute("UPDATE quotes SET verified=? WHERE id=?",(int(data["verified"]),quote_id)).rowcount
+                self.respond(200 if count else 404, {"status": "updated" if count else "not_found"})
+            except (ValueError, sqlite3.Error) as e:
+                self.respond(400, {"error": "invalid_quote_status", "message": str(e)[:110]})
+            return
         parts = path.split("/")
         if len(parts) != 6 or parts[1:5] != ["api","v1","admin","opportunities"]:
             self.respond(404, {"error": "not_found"})
