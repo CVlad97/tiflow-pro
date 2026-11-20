@@ -1,0 +1,20 @@
+[Unit]
+Description=TiFlow approved RSS monitor and privacy retention
+After=tiflow-api.service
+
+[Service]
+Type=oneshot
+DynamicUser=yes
+User=tiflow
+WorkingDirectory=/opt/tiflow/backend
+StateDirectory=tiflow
+EnvironmentFile=/etc/tiflow/backend.env
+ExecStart=/usr/bin/python3 /opt/tiflow/backend/collector.py
+ExecStart=/usr/bin/python3 /opt/tiflow/backend/cleanup.py
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/tiflow
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+UMask=0077

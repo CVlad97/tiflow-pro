@@ -1,0 +1,25 @@
+[Unit]
+Description=TiFlow public qualification API (no financial operations)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+User=tiflow
+WorkingDirectory=/opt/tiflow/backend
+StateDirectory=tiflow
+EnvironmentFile=/etc/tiflow/backend.env
+ExecStart=/usr/bin/python3 /opt/tiflow/backend/app.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/tiflow
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

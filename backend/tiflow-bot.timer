@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily TiFlow sourcing RSS watch (only approved feeds)
+
+[Timer]
+OnCalendar=*-*-* 06:30:00
+RandomizedDelaySec=900
+Persistent=true
+Unit=tiflow-bot.service
+
+[Install]
+WantedBy=timers.target
