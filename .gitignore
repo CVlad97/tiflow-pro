@@ -4,3 +4,5 @@ dist/
 *.local
 *.tsbuildinfo
 supabase/.temp
+backend/__pycache__/
+backend/*.sqlite3
